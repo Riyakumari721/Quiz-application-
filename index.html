@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Quiz Quest — HTML/CSS/JS</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo" aria-hidden="true"><span>❔</span></div>
+        <h1>Quiz Question</h1>
+      </div>
+      <div class="controls">
+        <button id="btnRestartTop" class="btn ghost">↻ Restart</button>
+        <button id="btnToggleTimer" class="btn ghost" title="Toggle per‑question timer">⏱️ Timer: <span id="timerState">Off</span></button>
+      </div>
+    </header>
+
+    <section id="screenStart" class="card">
+      <div class="hd"><span>Welcome</span><span class="meta"> Quiz Game</span></div>
+      <div class="bd center">
+        <div class="big" style="margin-bottom:8px">Ready to play?</div>
+        <p class="muted">10 questions || multiple choice  </p>
+        <div style="height:18px" aria-hidden="true"></div>
+        <button id="btnStart" class="btn primary">Start Quiz</button>
+      </div>
+    </section>
+
+    <section id="screenQuiz" class="card hidden" aria-live="polite">
+      <div class="hd">
+        <div class="row" style="width:100%">
+          <span id="qCounter">Question 1/10</span>
+          <div class="pill">Score: <span id="scoreTop" class="score">0</span></div>
+        </div>
+      </div>
+      <div class="bd">
+        <div class="progress" aria-hidden="true"><div id="bar" class="bar"></div></div>
+        <div class="row" style="margin-top:10px">
+          <div class="meta">Category: <span id="qCategory">General</span></div>
+          <div class="meta">Time left: <span id="qTimer">—</span></div>
+        </div>
+        <div id="qText" class="q" style="margin-top:10px">Question text…</div>
+        <div id="opts" class="grid" role="group" aria-label="Answer choices"></div>
+        <div id="explain" class="explain"></div>
+        <div class="row" style="margin-top:12px">
+          <button id="btnNext" class="btn primary" disabled>Next →</button>
+          <div class="meta">Tip: press 1‑4 to choose, N for next.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="screenEnd" class="card hidden">
+      <div class="hd"><span>Results</span><span id="resultBadge" class="pill">—</span></div>
+      <div class="bd center">
+        <div class="big">Your score</div>
+        <div style="font-size:28px;margin:6px 0 10px" class="score"><span id="scoreFinal">0</span> / <span id="totalFinal">10</span></div>
+        <div class="muted">Best score : <span id="bestScore">0</span></div>
+        <div style="height:12px"></div>
+        <div class="row center" style="justify-content:center">
+          <button id="btnRestart" class="btn ok">Play again</button>
+          <button id="btnShare" class="btn ghost">Share</button>
+          <button id="btnReview" class="btn ghost">Review answers</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="screenReview" class="card hidden">
+      <div class="hd"><span>Review Answers</span><button id="btnCloseReview" class="btn ghost">Close</button></div>
+      <div class="bd" id="reviewList"></div>
+    </section>
+  </div>
+
+  
+</body>
+</html>
